@@ -28,11 +28,7 @@ def encrypt_docx(input_filename, output_filename, public_key):
     encrypted_text = ' '.join(map(str, encrypted_message))
     write_docx(output_filename, encrypted_text)
 
-### TEST ###
-'''path =os.path.dirname(os.path.abspath(__file__)) #đường dẫn đến thư mục
-path_word = path+"/test.docx"
-encrypt_docx(path_word,path_word,public_key)'''
-### TEST ###
+    
 
 path =os.path.dirname(os.path.abspath(__file__)) #đường dẫn đến thư mục
 
