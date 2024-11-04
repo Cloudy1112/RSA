@@ -1,6 +1,7 @@
 from docx import Document
 import os
 import findWordFile
+import sys
 
 # Giải mã văn bản bằng khóa riêng
 def decrypt(private_key, ciphertext):
