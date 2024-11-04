@@ -1,5 +1,6 @@
 from docx import Document
 import os
+import findWordFile
 
 # Giải mã văn bản bằng khóa riêng
 def decrypt(private_key, ciphertext):
@@ -27,7 +28,17 @@ def decrypt_docx(input_filename, output_filename, private_key):
     encrypted_message = list(map(int, encrypted_text.split()))
     decrypted_message = decrypt(private_key, encrypted_message)
     write_docx(output_filename, decrypted_message)
+    
+findWordFile.exec() ## Tìm đường dẫn đến các file word
 
+def resource_path(relative_path):
+    # Trả về đường dẫn tuyệt đối tới các file tài nguyên, 
+    # hỗ trợ cả khi chạy code và khi đóng gói bằng PyInstaller
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
+###ENCRYPT###
 path =os.path.dirname(os.path.abspath(__file__)) #đường dẫn đến thư mục
 
 #IMPORT PRIVATE KEY 
